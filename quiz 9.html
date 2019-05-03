@@ -21,7 +21,7 @@
     </style>
 </head>  
 
-<body>
+<body onunload=>
   <header>
     <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
@@ -68,118 +68,114 @@
     
       <main role="main">
         <script>
-            var RightAnswers = 0;
-            var QuestionsAnswered = 0;
+          var RightAnswers = 0;
+          var QuestionsAnswered = 0;
 
-            function Q1IsAnswered(number) {
-              var s = document.querySelector("#Q" + number + "_answers");
+          function Q1IsAnswered(track, right) {
+            QuestionsAnswered = QuestionsAnswered + 1;
+            var s = document.querySelector("#" + track)
+            if ((right !== undefined) && right) {
+              RightAnswers = RightAnswers + 1;
+              s.innerHTML = '<h4><span class="badge badge-secondary">Question Answered</span> \
+                <span class="badge badge-pill badge-success">Right!</span></h4>';
+            }              
+            else {
+              s.innerHTML = '<h4><span class="badge badge-secondary">Question Answered</span> \
+                <span class="badge badge-pill badge-warning">Wrong</span></h4>';
+            }
+          }
 
-              // We have to check the answer here as we overwrite the radio buttons later.
-              
-              // Find the user answer
-              var selector = "input[name=Q" + number +"]:checked";
-              var userAnswer = (s.querySelector(selector) || {}).value;
-              
-              // Check answer 
-              if (userAnswer === questions[number-1].correct) {
-                RightAnswers = RightAnswers + 1;
-                s.innerHTML = '<h4><span class="badge badge-secondary">Question Answered</span>\
-                  <span class="hint badge badge-pill badge-success" hidden>Correct</span></h4>';    
-              } else {
-                s.innerHTML = '<h4><span class="badge badge-secondary">Question Answered</span>\
-                  <span class="hint badge badge-pill badge-warning" hidden>Wrong</span></h4>';                        
+          function seeScore() {
+            var s = document.querySelector("#Score");
+            if (QuestionsAnswered == 2) {
+              s.innerHTML = "Your score was " 
+                + RightAnswers 
+                + "/2!";
+                
+              // Enable buttons  
+              var buttons = document.querySelectorAll("#Panel > button");
+              if (buttons !== null) {
+                buttons[0].hidden=true;
+                buttons[1].hidden=false;
               }
+            } 
             
-              QuestionsAnswered = QuestionsAnswered + 1;
+            else {
+              s.innerHTML = 'You have not answered all the questions yet.';
             }
-
-            function seeScore() {
-              var s = document.querySelector("#Score");
-              if (QuestionsAnswered == questions.length) {
-                s.innerHTML = "Your score was " + RightAnswers + "/" + QuestionsAnswered +"!";
-                // "<br><a href='learning 2.html' class='tab'>Next<\/a><br><br>";
+          }
             
-                // Show hints
-                var hints = document.querySelectorAll(".hint");
-                console.log("Found hints:" + hints.length);
-                hints.forEach( function (h) {
-                  //console.log(h);
-                  h.hidden = false;
-                });
-              
-                // Find buttons in the Panel
-                var button = document.querySelectorAll("h2#Panel button");
-                if (button.length > 0) {
-                  // console.log("Buttons:" + button);
-                  button[0].disabled=true; // Disable Check answers
-                  button[1].disabled=false;// Enable Next.
-                }
-              }
-              else {
-                s.innerHTML = "You have not answered all the questions yet!";
-              }
-            }
+          // Called when Next button is pressed
+          function next() {
+            // Next location
+            window.location.href="./Well done.html";
+          }
             
-            
-            // Called when Next button is pressed
-            function next() {
-              // Next location
-              window.location.href="./Well done!.html";
-            }
-            
-            // These are the questions and multi choice answers
-            const questions = [
-              {
-                "number": 1,
-                "question":"What is port",
-                "answers": {
-                  a: "left",
-                  b: "right",
-                  c: "forward",
-                  d: "backward"
-                },
-                "correct": "a"
-              },
-              {
-                "number": 2,
-                "question":"What is aft",
-                "answers": {
-                  a: "left",
-                  b: "right",
-                  c: "forward",
-                  d: "backward"
-                },
-                "correct": "d"
-              }
-            ];
             
         </script>
         
         <div class="container">
         <p>This is a quiz, it can be hard but don't worry about it if you get it wrong. Remember, learn from your mistakes.</p>
 
-        <div id="quiz">
-          <!--Questions-->
-          <!--Question1-->
-          <!-- <br><h3>Q1: What does the rudder do?</h3> -->
-          <!-- <br><form id="Q1_answers">
-          <form id="Q1_answers">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input name="Ans1" type="radio" class="form-check-input" onclick="Q1IsAnswered('Q1_answers')"><h4>A: It stops the boat from sinking</h4>
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input name="Ans1" type="radio" class="form-check-input" onclick="Q1IsAnswered('Q1_answers')"><h4>B: It helps to make it go fast</h4>
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input name="Ans1" type="radio" class="form-check-input" onclick="RightAnswers = RightAnswers + 1; Q1IsAnswered('Q1_answers');"><h4>C: It steers the boat</h4>
-              </label>
-            </div>
-          </form> -->        
+        <div id="quiz"/>
+        
+        <!--Question1-->
+        <br><h3>Q1: What do you call the sail in front of the mainsail?</h3>
+        <br><form id="Q1_answers">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans1" type="radio" class="form-check-input" onclick="Q1IsAnswered('Q1_answers')">
+                <h4>A: Front sail</h4>
+              </input>
+            </label>
+          </div>              
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans1" type="radio" class="form-check-input" onclick="Q1IsAnswered('Q1_answers')">
+                <h4>B: Fast sail</h4>
+              </input>
+            </label>
+          </div>              
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans1" type="radio" class="form-check-input"
+                  onclick="Q1IsAnswered('Q1_answers',true)">
+                <h4>C: The Jib sail</h4>
+              </input>
+            </label>
+          </div>              
+        </form>
+        
+        <!--Question2-->
+        <br><h3>Q2: What is port?</h3>
+        <br><form id="Q2_answers">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans2" type="radio" class="form-check-input"
+                  onclick="Q1IsAnswered('Q2_answers')">
+                <h4>A: Forwards</h4>
+              </input>
+            </label>
+          </div>              
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans2" type="radio" class="form-check-input"
+                  onclick="Q1IsAnswered('Q2_answers')">
+                <h4>B: Right</h4>
+              </input>
+            </label>
+          </div>              
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans2" type="radio" class="form-check-input"
+                  onclick="Q1IsAnswered('Q2_answers,true')">
+                <h4>C: Left</h4>
+              </input>
+            </label>
+          </div>              
+        </form>
+
+
         </div>  
 
         <!-- Show the scoring -->
@@ -188,7 +184,7 @@
           <h2 id="Panel" class="text-right">
             <!--Button to check results -->
             <button class="btn btn-info" onclick="seeScore()">Check answers</button> 
-            <button class="btn btn-success" onclick="next()" disabled>Next</button> 
+            <button class="btn btn-success" onclick="next()" hidden>Next</button> 
             <!-- <a href="learning 2.html" class="btn btn-success">Next</a> -->
           </h2>
         </div>

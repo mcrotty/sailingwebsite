@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="odhran Crotty, and Bootstrap contributors">
@@ -36,7 +36,7 @@
               <div class="col-sm-8 col-md-7 py-4">
                 <h4 class="text-white">About this project</h4>
                 <p class="text-muted">The main purpose is to give people the opportunity to learn some things about sailing.
-                  We (Odhran and Tiernan) love to sail and we would like others to try it out too. 
+                  We (Odhran and Tiernan) love to sail and we would like others to try it out too.
                 </p>
                 <p class="text-muted">Most of this project was written in HTML5 using <a href="https://getbootstrap.com">Bootstrap CSS</a> to give some layout to the pages.
                   Each lesson is a seperate HTML page, so that people can restart where they stopped.
@@ -72,8 +72,8 @@
       </div>
     </header>
 
-    
-    
+
+
       <main role="main">
         <script>
             var RightAnswers = 0;
@@ -81,10 +81,14 @@
 
             function Q1IsAnswered(track, right) {
               var s = document.querySelector("#" + track)
-              s.innerHTML = '<h4><span class="badge badge-secondary">Question Answered</span></h4>';
               QuestionsAnswered = QuestionsAnswered + 1;
               if ((right !== undefined) && right) {
                 RightAnswers = RightAnswers + 1;
+                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-success">Right!</span></h4>';
+              }
+
+              else {
+                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-warning">Wrong</span></h4>';
               }
             }
 
@@ -92,20 +96,20 @@
               var s = document.querySelector("#Score");
               if (QuestionsAnswered == 4) {
                 s.innerHTML = "Your score was " + RightAnswers + "/4!";
-                
+
                 // Enable the buttons
                 var buttons = document.querySelectorAll("#Panel > button");
                 if (buttons !== null) {
                   buttons[0].hidden=true;
                   buttons[1].hidden=false;
                 }
-              } 
-              
+              }
+
               else {
                 s.innerHTML = "You have not answered all the questions yet."
               }
             }
-            
+
             // Called when Next button is pressed
             function next() {
               // Next location
@@ -118,27 +122,27 @@
           <h2>Quiz number 5</h2>
           <p>This is a quiz, it can be hard but don't worry about it if you get it wrong. Remember, learn from your mistakes.</p>
 
-          <div id="quiz">            
-          </div>  
+          <div id="quiz">
+          </div>
 
         <!--Question1-->
         <br><h3>Q1: What is a gust?</h3>
         <br><form id="Q1_answers">
-          
+
           <div class="form-check">
             <label class="form-check-label">
               <input name="Ans1" type="radio" class="form-check-input" onclick="Q1IsAnswered('Q1_answers')">
                 <h4>A: A unit used for measuring nautical weather</h4>
               </input>
             </label>
-          </div>              
+          </div>
           <div class="form-check">
             <label class="form-check-label">
               <input name="Ans1" type="radio" class="form-check-input" onclick="Q1IsAnswered('Q1_answers',true)">
                 <h4>B: A strong wind</h4>
               </input>
             </label>
-          </div>              
+          </div>
           <div class="form-check">
             <label class="form-check-label">
               <input name="Ans1" type="radio" class="form-check-input"
@@ -146,9 +150,9 @@
                 <h4>C: A pizza parlour</h4>
               </input>
             </label>
-          </div>              
+          </div>
         </form>
-        
+
         <!--Question2-->
         <br><h3>Q2: What do you use to measure wind speed?</h3>
         <br/>
@@ -160,7 +164,7 @@
                 <h4>A: Formulas</h4>
               </input>
             </label>
-          </div>              
+          </div>
           <div class="form-check">
             <label class="form-check-label">
               <input name="Ans2" type="radio" class="form-check-input"
@@ -168,7 +172,7 @@
                 <h4>B: Beef</h4>
               </input>
             </label>
-          </div>              
+          </div>
           <div class="form-check">
             <label class="form-check-label">
               <input name="Ans2" type="radio" class="form-check-input"
@@ -176,7 +180,7 @@
                 <h4>C: Knots</h4>
               </input>
             </label>
-          </div>              
+          </div>
         </form>
 
         <!--Question3-->
@@ -238,30 +242,31 @@
             </label>
           </div>
         </form>
-        
-        <!--Next-->        
+
+        <!--Next-->
         <!-- Show the scoring -->
         <div >
           <h5 id="Score" class="text-right"/>
           <h2 id="Panel" class="text-right">
             <!--Button to check results -->
-            <button class="btn btn-info" onclick="seeScore()">Check answers</button> 
-            <button class="btn btn-success" onclick="next()" hidden>Next</button> 
+            <button class="btn btn-info" onclick="seeScore()">Check answers</button>
+            <button class="btn btn-success" onclick="next()" hidden>Next</button>
           </h2>
         </div>
         <br/>
 
     </main>
-  
 
-    
-    
-    
+
+
+
+
     <!-- This bit goes at the bottom -->
     <script src="js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  
+
     <script>window.jQuery || document.write('<script src="./js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
-    
-</body>       
+    <script src="js/quiz.js"></script>
+
+</body>
 </html>

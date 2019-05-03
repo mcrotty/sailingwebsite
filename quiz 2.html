@@ -28,7 +28,7 @@
     <style type="text/css"></style>
   </head>
 
-  <body>
+  <body onunload="storeResults()">
       <header>
           <div class="collapse bg-dark" id="navbarHeader">
             <div class="container">
@@ -73,10 +73,14 @@
 
             function Q1IsAnswered(track, right) {
               var s = document.querySelector("#" + track)
-              s.innerHTML = '<h4><span class="badge badge-secondary">Question Answered</span></h4>';
               QuestionsAnswered = QuestionsAnswered + 1;
               if ((right !== undefined) && right) {
                 RightAnswers = RightAnswers + 1;
+                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-success">Right!</span></h4>'
+              }
+
+              else {
+                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-warning">Wrong</span></h4>';
               }
             }
 
@@ -107,41 +111,7 @@
             }
             
             // These are the questions and multi choice answers
-            const questions = [
-              {
-                "number": 1,
-                "question":"Why do you wear layers?",
-                "answers": {
-                  a: "To look cool",
-                  b: "To keep the water out",
-                  c: "To keep warm",
-                  d: "To look like a seal."
-                },
-                "correct": "c"
-              },
-              {
-                "number": 2,
-                "question":"What is the most important thing for keeping you safe?",
-                "answers": {
-                  a: "Metal ladders",
-                  b: "Buoyancy aids / Lifejackets",
-                  c: "A wooden mast",
-                },
-                "correct": "b"
-              },
-              {
-                "number": 3,
-                "question":"How do buoyancy aids float?",
-                "answers": {
-                  a: "They have a type of foam inside them",
-                  b: "They have helium balloons inside them",
-                  c: "They\'re magic",
-                },
-                "correct": "a"
-              }
-            ];
-
-            
+           
         </script>
 
         <div class="container">
@@ -212,6 +182,7 @@
   
     <script>window.jQuery || document.write('<script src="./js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+    <script src="js/quiz.js"></script>
     
 </body>       
 </html>

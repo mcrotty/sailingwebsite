@@ -81,10 +81,14 @@
 
             function Q1IsAnswered(track, right) {
               var s = document.querySelector("#" + track)
-              s.innerHTML = '<h4><span class="badge badge-secondary">Question Answered</span></h4>';
               QuestionsAnswered = QuestionsAnswered + 1;
               if ((right !== undefined) && right) {
                 RightAnswers = RightAnswers + 1;
+                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-success">Right!</span></h4>';
+              }
+
+              else {
+                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-warning">Wrong</span></h4>';
               }
             }
 
@@ -227,6 +231,7 @@
   
     <script>window.jQuery || document.write('<script src="./js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+    <script src="js/quiz.js"></script>
     
 </body>       
 </html>

@@ -15,8 +15,11 @@
     <link href="css/sailing.css" rel="stylesheet">
 
     <style>
-      a:hover {
+      /* a:hover {
         font-size: 18px;
+      } */
+      .huge {
+        font-size: 4rem;
       }
     </style>
 </head>  
@@ -66,42 +69,46 @@
 
     
     
-      <main role="main">
-        <script>
-          var Total = window.localStorage.getItem(RightAnswers);
-
-          var percentage = (Total/26) * 100 + "%";
-
-          var s = document.querySelector("#Percentage");
-          s.innerHTML = percentage;
-          
-        </script>
-        <section class="jumbotron text-center">
-          <div class="container">
-            <h1 class="jumbotron-heading">Well Done!</h1>
-            <p class="lead text-muted">You have just completed the sailing website and quiz we will soon show you what pecentage you got!</p>
-            <p>
-              
-            </p>
-
-            <div id="Percentage" class="huge">
-
-            </div>
-          </div>
-        </section>
-      </main>
+  <main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Well Done!</h1>
+        <p class="lead text-muted">You have just completed the sailing website and quiz we will soon show you what pecentage you got!</p>
+        <p/>
+        <div id="Percentage" class="huge">
+            20 %
+        </div>
+      </div>
+    </section>
+  </main>
   
+  <script>
+    var RightAnswers = 0;
+    var QuestionsAnswered = 0;
+
+    var percentage = "0 %"
+    // Get the total number of right answers
+    var Total = window.localStorage.getItem("RightAnswers");
+    if ((Total !== undefined) || (Total !== null)) {
+      // Round so not so many decimal places
+      percentage = Math.round((Total/26) * 100) + " %";
+    }
+
+    var s = document.querySelector("#Percentage");
+    s.innerHTML = percentage;
+    
+  </script>
 
     
     
     
-    <!-- This bit goes at the bottom -->
-    <script src="js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  
-    <script>window.jQuery || document.write('<script src="./js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+  <!-- This bit goes at the bottom -->
+  <script src="js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-    <script src="js/quiz.js" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="./js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+
+  <script src="js/quiz.js" crossorigin="anonymous"></script>
     
 </body>       
 </html>

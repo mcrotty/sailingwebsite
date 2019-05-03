@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="odhran Crotty, and Bootstrap contributors">
+    <title>The sailing quiz</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sailing.css" rel="stylesheet">
+</head>  
+
+<body>
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About this project</h4>
+              <p class="text-muted">The main purpose is to give people the opportunity to learn some things about sailing.
+                We (Odhran and Tiernan) love to sail and we would like others to try it out too. 
+              </p>
+              <p class="text-muted">Most of this project was written in HTML5 using <a href="https://getbootstrap.com">Bootstrap CSS</a> to give some layout to the pages.
+                Each lesson is a seperate HTML page, so that people can restart where they stopped.
+                The answers to the quizs are checked with Javascript.
+              </p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="http://wexfordcoderdojo.com/" class="text-white">Wexford coderdojo</a></li>
+                <li><a href="http://coolestprojects.org/" class="text-white">Coolest Projects</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" fill="currentColor" focusable="false" aria-hidden="true">
+            <polygon points="74.787,375.394 257.554,375.394 257.554,0"/>
+            <polygon points="289.053,77.246 289.053,375.394 434.211,375.394"/>
+            <path d="M8.511,406.892c19.964,30.876,47.161,56.669,79.154,74.915C122.297,501.56,161.675,512,201.544,512h186.552
+              c24.499,0,47.826-7.744,67.462-22.394s33.701-34.808,40.677-58.292l7.254-24.422H8.511z"/>
+          </svg>
+            <strong>Sailing Quiz</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+    </div>
+  </header>
+    
+  <main role="main">
+    <div class="main">
+      <div class="container">
+
+
+    <h2>Types of sailing boats</h2>
+    
+    <!-- <h3>Introduction</h3> -->
+    <p>A topper isn't the only sailing boat there is thousands more sailing boats.</p>
+    <p>There is also powerboats which are boats with engines on them.</p>
+
+    <p>I will show you a picture of a tiller engine powerboat, a steering wheel powerboat, quest, squib, topaz and optimist.</p>
+
+    <h3>Beginner sailing boats</h3>
+
+    <div class="row">
+      <!-- offset-1 to step in picture as it looks nicer -->
+      <div class="col offset-1">
+        <figure class="figure">
+          <!-- <img src="images of boats\optimist sailing boat.jpg" height="320px" width="400px"> -->
+          <img src="images of boats\optimist sailing boat.jpg" class="figure-img img-fluid rounded" alt="Rigged topper." width="400px"/>
+          <figcaption class="figure-caption">Optimist sailing boat.</figcaption>
+        </figure>
+      </div>
+      <!-- offset-1 to step in picture as it looks nicer -->
+      <div class="col offset-1">
+        <figure class="figure">
+          <!-- <img src="images of boats\topper sailing boat.jpg" height="320px" width="400px"> -->
+          <img src="images of boats\topper sailing boat.jpg" class="figure-img img-fluid rounded" alt="Topper sailing boat." width="400px"/>
+          <figcaption class="figure-caption">Topper sailing boat.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- used style align-items-center to put the text in the centre of the picture -->
+    <div class="row align-items-center">
+      <!-- offset-1 to step in picture as it looks nicer -->
+      <div class="col offset-1">
+        <figure class="figure">
+          <!-- <img src="images of boats\topaz sailing boat.jpg" height="320px" width="400px"> -->
+          <img src="images of boats\topaz sailing boat.jpg" class="figure-img img-fluid rounded" alt="Topaz sailing boat." width="400px"/>
+          <figcaption class="figure-caption">Topaz sailing boat.</figcaption>
+        </figure>
+      </div>
+      <!-- offset-1 to step in picture as it looks nicer -->
+      <div class="col offset-1">
+        <p>
+          These boats are the most commonly used when starting sailing.
+          They are small enough that a single person can manage to sail them.
+        </p>
+      </div>
+    </div>
+
+    <br/>
+    
+    <h3>Larger sailing boats</h3>
+    <p>
+      A quest is a big sailing boat a bit like a squib.
+    </p>
+
+    <div class="row">
+      <!-- offset-1 to step in picture as it looks nicer -->
+      <div class="col offset-1">
+        <figure class="figure">
+          <!-- <img src="images of boats\topaz sailing boat.jpg" height="320px" width="400px"> -->
+          <img src="images of boats\quest sailing boat.jpg" class="figure-img img-fluid rounded" alt="Quest sailing boat." width="400px"/>
+          <figcaption class="figure-caption">Quest sailing boat.</figcaption>
+        </figure>
+      </div>
+      <!-- offset-1 to step in picture as it looks nicer -->
+      <div class="col offset-1">
+        <figure class="figure">
+          <!-- <img src="images of boats\squib sailing boat.jpg" height="320px" width="400px"> -->
+          <img src="images of boats\squib sailing boat.jpg" class="figure-img img-fluid rounded" alt="Squib sailing boat." width="400px"/>
+          <figcaption class="figure-caption">Squib sailing boat.</figcaption>
+        </figure>
+      </div>
+    </div>
+    
+    <p>That is all the sailing boats in this lesson there are a few more, for instance a sailing yacht and dinghies.</p>
+    <br/>
+
+    <h3>Power boats</h3>
+    <p>We are now on to powerboats, powerboats are not sailing boats they are boats with engines on them.</p>
+
+    <div class="row">
+      <!-- offset-1 to step in picture as it looks nicer -->
+      <div class="col offset-1">
+        <figure class="figure">
+          <!-- <img src="images of boats\tiller engine powerboat.jpg" height="320px" width="400px"> -->
+          <img src="images of boats\tiller engine powerboat.jpg" class="figure-img img-fluid rounded" alt="Tiller engine powerboat." width="400px"/>
+          <figcaption class="figure-caption">Tiller engine powerboat.</figcaption>
+        </figure>
+      </div>
+      <!-- offset-1 to step in picture as it looks nicer -->
+      <div class="col offset-1">
+        <figure class="figure">
+          <!-- <img src="images of boats\barney is a dinosaur powerboat.jpg" height="320px" width="400px"> -->
+          <img src="images of boats\barney is a dinosaur powerboat.jpg" class="figure-img img-fluid rounded" alt="barney powerboat." width="400px"/>
+          <figcaption class="figure-caption">"Barney" powerboat.  
+            This is one of the boats in Wexford Harbour Boat Club.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <p>The first image is a tiller engine and the other image is a picture of a steering wheel engine.</p>
+    <p>By the way the second image is a picture of barney my <strong>favourite</strong> powerboat.</p>
+
+    <p>By the way the reason why barney is my favourite boat is because it has 200 horsepower.</p>
+    
+    <h3>Horsepower</h3>
+    <blockquote class="blockquote text-center">
+      <p class="mb-1">Horsepower is a unit of measurement of power, or the rate at which work is done. </p>
+    </blockquote>
+    <p>
+      There are many different standards and types of horsepower. 
+      Two common definitions being used today are the mechanical horsepower, 
+      which is about 745.7 watts, and the metric horsepower, 
+      which is approximately 735.5 watts.
+    </p>
+
+    <!-- used style align-items-center to put the text in the centre of the picture -->
+    <div class="row align-items-center">
+      <!-- offset-1 to step in picture as it looks nicer -->
+      <div class="col offset-1">
+        <h4>Crazy boats</h4>
+        <p>Sometimes mechanics go a bit crazy and create boats that are a bit to fast like this one it has a lot engines.</p>
+        <p>This is not a good idea as all the engines might catch fire if you went too fast.</p>
+        <p>The last picture was a picture of a boat used to smuggle drugs.</p>
+        <!-- <p>But they <strong>could not outrun the police</strong></p> -->
+      </div>
+      <!-- offset-1 to step in picture as it looks nicer -->
+      <div class="col offset-1">
+        <figure class="figure">
+          <!-- <img src="images of boats\boat used to  steal drugs.jpg" height="400" width="400"> -->
+          <img src="images of boats\boat used to  steal drugs.jpg" class="figure-img img-fluid rounded" alt="Drug smuggling powerboat." width="400px"/>
+          <figcaption class="figure-caption">Drug smuggling powerboat.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+
+    <br/>
+    <h4 class="text-center">
+      <a href="quiz 8.html">Click Here To Start The Eight Quiz</a>
+    </h4>
+    <br/>
+
+      </div>
+    </div>
+  </main>
+
+
+  <footer class="text-muted">
+        <div class="container">
+          <p class="float-right">
+            <a href="#">Back to top</a>
+          </p>
+          <p>Made by Tiernan and Odhran Crotty.  All rights reserved.</p>
+        </div>
+  </footer>
+
+  <script src="js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  
+  <script>window.jQuery || document.write('<script src="./js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+
+</body>
+</html>

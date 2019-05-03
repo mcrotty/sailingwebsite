@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="odhran Crotty, and Bootstrap contributors">
+    <title>Sailing quiz 7</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="css/sailing.css" rel="stylesheet">
+    <style type="text/css"></style>
+  </head>
+
+  <body>
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 col-md-7 py-4">
+                <h4 class="text-white">About this project</h4>
+                <p class="text-muted">The main purpose is to give people the opportunity to learn some things about sailing.
+                  We (Odhran and Tiernan) love to sail and we would like others to try it out too. 
+                </p>
+                <p class="text-muted">Most of this project was written in HTML5 using <a href="https://getbootstrap.com">Bootstrap CSS</a> to give some layout to the pages.
+                  Each lesson is a seperate HTML page, so that people can restart where they stopped.
+                  The answers to the quizs are checked with Javascript.
+                </p>
+              </div>
+              <div class="col-sm-4 offset-md-1 py-4">
+                <h4 class="text-white">Contact</h4>
+                <ul class="list-unstyled">
+                  <li><a href="http://wexfordcoderdojo.com/" class="text-white">Wexford coderdojo</a></li>
+                  <li><a href="http://coolestprojects.org/" class="text-white">Coolest Projects</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+          <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" fill="currentColor" focusable="false" aria-hidden="true">
+              <polygon points="74.787,375.394 257.554,375.394 257.554,0"/>
+              <polygon points="289.053,77.246 289.053,375.394 434.211,375.394"/>
+              <path d="M8.511,406.892c19.964,30.876,47.161,56.669,79.154,74.915C122.297,501.56,161.675,512,201.544,512h186.552
+                c24.499,0,47.826-7.744,67.462-22.394s33.701-34.808,40.677-58.292l7.254-24.422H8.511z"/>
+            </svg>
+            <strong>Sailing Quiz</strong>
+          </a>
+          <a href="./learning 7.html" class="navbar-brand d-flex align-items-center">
+            <strong>Learn</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          </div>
+      </div>
+    </header>
+
+    
+    
+      <main role="main">
+        <script>
+            var RightAnswers = 0;
+            var QuestionsAnswered = 0;
+
+            function Q1IsAnswered(track, right) {
+              var s = document.querySelector("#" + track)
+              s.innerHTML = '<h4><span class="badge badge-secondary">Question Answered</span></h4>';
+              QuestionsAnswered = QuestionsAnswered + 1;
+              if ((right !== undefined) && right) {
+                RightAnswers = RightAnswers + 1;
+              }
+            }
+
+            function seeScore() {
+              var s = document.querySelector("#Score");
+              if (QuestionsAnswered == 2) {
+                s.innerHTML = "Your score was " + RightAnswers + "/2!";
+                
+                // Enable the buttons
+                var buttons = document.querySelectorAll("#Panel > button");
+                if (buttons !== null) {
+                  buttons[0].hidden=true;
+                  buttons[1].hidden=false;
+                  buttons[2].hidden=false;
+                }
+
+              } 
+              
+              else {
+                s.innerHTML = "You have not answered all the questions yet."
+              }
+            }
+
+            function explain() {
+              var s = document.querySelector("#Confused");
+              s.innerHTML = "<h5>Putting up your rudder is only part <br>of rigging, to do it properly, you <br>need to put on your mast and screw<br> on your bung and so on.<\/h5>";
+            }
+            
+            // Called when Next button is pressed
+            function next() {
+              // Next location
+              window.location.href="./learning 8.html";
+            }
+
+        </script>
+
+        <div class="container">
+          <h2>Quiz number 7</h2>
+          <p>This is a quiz, it can be hard but don't worry about it if you get it wrong. Remember, learn from your mistakes.</p>
+
+          <div id="quiz">            
+          </div>  
+
+        <!--Question1-->
+        <br><h3>Q1: What do you call putting on your rudder?</h3>
+        <br><form id="Q1_answers">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans1" type="radio" class="form-check-input" onclick="Q1IsAnswered('Q1_answers')">
+                <h4>A: De-rigging</h4>
+              </input>
+            </label>
+          </div>              
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans1" type="radio" class="form-check-input" onclick="Q1IsAnswered('Q1_answers',true)">
+                <h4>B: Part of rigging</h4>
+              </input>
+            </label>
+          </div>              
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans1" type="radio" class="form-check-input"
+                  onclick="Q1IsAnswered('Q1_answers')">
+                <h4>C: Rigging</h4>
+              </input>
+            </label>
+          </div>              
+        </form>
+        
+        <!--Question2-->
+        <br><h3>Q2: What is de-rigging?</h3>
+        <br><form id="Q2_answers">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans2" type="radio" class="form-check-input"
+                  onclick="Q1IsAnswered('Q2_answers', true)">
+                <h4>A: Fun</h4>
+              </input>
+            </label>
+          </div>              
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans2" type="radio" class="form-check-input"
+                  onclick="Q1IsAnswered('Q2_answers',true)">
+                <h4>B: Taking down your rudder and mast and so on</h4>
+              </input>
+            </label>
+          </div>              
+          <div class="form-check">
+            <label class="form-check-label">
+              <input name="Ans2" type="radio" class="form-check-input"
+                  onclick="Q1IsAnswered('Q2_answers')">
+                <h4>C: Destroying your boat</h4>
+              </input>
+            </label>
+          </div>              
+        </form>
+
+        <!--Confusion-->
+        <!-- <div class="container"> -->
+          <div class="text-center">
+            <a href="javascript:explain()">I answered rigging for Q1, why did I get it wrong?</a>
+            <div id="Confused"></div>
+          </div>
+        <!-- </div> -->
+        
+        <div >
+          <h5 id="Score" class="text-right"/>
+          <h2 id="Panel" class="text-right">
+            <!--Button to check results -->
+            <button class="btn btn-info" onclick="seeScore()">Check answers</button> 
+            <!-- <button class="btn btn-info" onclick="explain()" hidden>Explain</button>  -->
+            <button class="btn btn-success" onclick="next()" hidden>Next</button> 
+          </h2>
+        </div>    
+        <br/>
+        
+      </div>
+    </main>
+  
+
+    
+    
+    
+    <!-- This bit goes at the bottom -->
+    <script src="js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  
+    <script>window.jQuery || document.write('<script src="./js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+    
+</body>       
+</html>

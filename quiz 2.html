@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="odhran Crotty, and Bootstrap contributors">
+    <title>Sailing quiz 1</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="css/sailing.css" rel="stylesheet">
+    <style type="text/css"></style>
+  </head>
+
+  <body>
+      <header>
+          <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                  <h4 class="text-white">About me</h4>
+                  <p class="text-muted">This is a sailing quiz. Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                  <h4 class="text-white">Contact</h4>
+                  <ul class="list-unstyled">
+                    <li><a href="https://getbootstrap.com/docs/4.2/examples/album/#" class="text-white">Follow on Twitter</a></li>
+                    <li><a href="https://getbootstrap.com/docs/4.2/examples/album/#" class="text-white">Like on Facebook</a></li>
+                    <li><a href="https://getbootstrap.com/docs/4.2/examples/album/#" class="text-white">Email me</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+              <a href="quiz 1.html" class="navbar-brand d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" focusable="false" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                <strong>Sailing Quiz</strong>
+              </a>
+              <a href="/" class="navbar-brand d-flex align-items-center"><strong>Home</strong></a>
+              <a href="learning 1.html" class="navbar-brand d-flex align-items-center"><strong>Learn</strong></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </div>
+        </header>
+
+    
+    
+      <main role="main">
+        <script>
+            var RightAnswers = 0;
+            var QuestionsAnswered = 0;
+
+
+            function Q1IsAnswered(track, right) {
+              var s = document.querySelector("#" + track)
+              s.innerHTML = '<h4><span class="badge badge-secondary">Question Answered</span></h4>';
+              QuestionsAnswered = QuestionsAnswered + 1;
+              if ((right !== undefined) && right) {
+                RightAnswers = RightAnswers + 1;
+              }
+            }
+
+            function seeScore() {
+              var s = document.querySelector("#Score");
+              if (QuestionsAnswered == 4) {
+                s.innerHTML = "Your score was " + RightAnswers + "/4!";
+                
+                // Enable the buttons
+                var buttons = document.querySelectorAll("#Panel > button");
+                if (buttons !== null) {
+                  buttons[0].hidden=true;
+                  buttons[1].hidden=false;
+                }
+                
+              } 
+  
+              else {
+                s.innerHTML = "You have not answered all the questions yet."
+              }
+            }
+            
+            
+            // Called when Next button is pressed
+            function next() {
+              // Next location
+              window.location="./learning 3.html";
+            }
+            
+            // These are the questions and multi choice answers
+            const questions = [
+              {
+                "number": 1,
+                "question":"Why do you wear layers?",
+                "answers": {
+                  a: "To look cool",
+                  b: "To keep the water out",
+                  c: "To keep warm",
+                  d: "To look like a seal."
+                },
+                "correct": "c"
+              },
+              {
+                "number": 2,
+                "question":"What is the most important thing for keeping you safe?",
+                "answers": {
+                  a: "Metal ladders",
+                  b: "Buoyancy aids / Lifejackets",
+                  c: "A wooden mast",
+                },
+                "correct": "b"
+              },
+              {
+                "number": 3,
+                "question":"How do buoyancy aids float?",
+                "answers": {
+                  a: "They have a type of foam inside them",
+                  b: "They have helium balloons inside them",
+                  c: "They\'re magic",
+                },
+                "correct": "a"
+              }
+            ];
+
+            
+        </script>
+
+        <div class="container">
+          <h2>Quiz number 2</h2>
+          <p>This is a quiz, it can be hard but don't worry about it if you get it wrong. Remember, learn from your mistakes.</p>
+
+          <div id="quiz">            
+          </div>  
+
+        <!--Question1-->
+        <br><h3>Q1: Why are wetsuits important while out on the water?</h3>
+        <br><form id="Q1_answers">
+              <h4>A: They are very warm and essential if you capsize</h4><input name="Ans1" type="radio" onclick="Q1IsAnswered('Q1_answers',true);"/>
+              <h4>B: They can also help you to float</h4><input name="Ans1" type="radio" onclick="Q1IsAnswered('Q1_answers');"/>
+              <h4>C: They make you more flexible</h4><input name="Ans1" type="radio" onclick="Q1IsAnswered('Q1_answers');">
+            </form>
+        
+        <!--Question2-->
+        <br><h3>Q2: What is one of the most important things of saftey?</h3>
+        <br><form id="Q2_answers">
+              <h4>A: Metal ladders</h4><input name="Ans2" type="radio" onclick="Q1IsAnswered('Q2_answers');"/>
+              <h4>B: Buoyancy aids</h4><input name="Ans2" type="radio" onclick="Q1IsAnswered('Q2_answers',true);"/>
+              <h4>C: A wooden mast</h4><input name="Ans2" type="radio" onclick="Q1IsAnswered('Q2_answers');"/>
+            </form>
+
+        <!--Question3-->
+        <br><h3>Q3: Why do you need buoyancy aids?</h3>
+        <br><form id="Q3_answers">
+              <h4>A: Because they have tracking devices inside them</h4><input name="Ans3" type="radio" onclick="Q1IsAnswered('Q3_answers');"/>
+              <h4>B: Because they help you to float</h4><input name="Ans3" type="radio" onclick="Q1IsAnswered('Q3_answers',true);"/>
+              <h4>C: They have food suplies</h4><input name="Ans3" type="radio" onclick="Q1IsAnswered('Q3_answers');">
+            </form>
+
+        <!--Question4-->
+        <br><h3>Q4: How do buoyancy aids float?</h3>
+        <br><form id="Q4_answers">
+              <h4>A: They have a type of foam inside them</h4><input name="Ans4" type="radio" onclick="Q1IsAnswered('Q4_answers',true);"/>
+              <h4>B: They have helium balloons inside them</h4><input name="Ans4" type="radio" onclick="Q1IsAnswered('Q4_answers');"/>
+              <h4>C: They're magic</h4><input name="Ans4" type="radio" onclick="Q1IsAnswered('Q4_answers');">
+            </form>
+        
+        
+            <div >
+              <h5 id="Score" class="text-right"/>
+              <h2 id="Panel" class="text-right">
+                <!--Button to check results -->
+                <button class="btn btn-info" onclick="seeScore()">Check answers</button> 
+                <button class="btn btn-success" onclick="next()" hidden>Next</button> 
+                <!-- <a href="learning 2.html" class="btn btn-success">Next</a> -->
+              </h2>
+            </div>
+                    
+            <br/>
+
+        <!--Next-->
+        <!-- <a href="javascript:seeScore()">Next</a>
+        <div id="Score"></div>
+        <br> -->
+      </div>
+    </main>
+  
+
+    
+    
+    
+    <!-- This bit goes at the bottom -->
+    <script src="js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  
+    <script>window.jQuery || document.write('<script src="./js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+    
+</body>       
+</html>

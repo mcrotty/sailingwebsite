@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="odhran Crotty, and Bootstrap contributors">
     <title>Sailing quiz 8</title>
+    <link rel="shortcut icon" type="image/png" href="The Crotty Sailors Logo.png">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -55,7 +56,7 @@
       </div>
       <div class="navbar navbar-dark bg-dark shadow-sm">
           <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand d-flex align-items-center">
+          <a href="index.html" class="navbar-brand d-flex align-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" fill="currentColor" focusable="false" aria-hidden="true">
               <polygon points="74.787,375.394 257.554,375.394 257.554,0"/>
               <polygon points="289.053,77.246 289.053,375.394 434.211,375.394"/>
@@ -78,19 +79,6 @@
         <script>
             var RightAnswers = 0;
             var QuestionsAnswered = 0;
-
-            function Q1IsAnswered(track, right) {
-              var s = document.querySelector("#" + track)
-              QuestionsAnswered = QuestionsAnswered + 1;
-              if ((right !== undefined) && right) {
-                RightAnswers = RightAnswers + 1;
-                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-success">Right!</span></h4>';
-              }
-
-              else {
-                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-warning">Wrong</span></h4>';
-              }
-            }
 
             function seeScore() {
               var s = document.querySelector("#Score");
@@ -132,25 +120,69 @@
           </div>  
 
         <!--Question1-->
-        <br><h3>Q1: What do you call putting up your rudder?</h3>
-        <br><form id="Q1_answers">
-              <h4>A: De-rigging</de-rigging></h4><input name="Ans1" type="radio" onclick="Q1IsAnswered('Q1_answers');"/>
-              <h4>B: Something</h4><input name="Ans1" type="radio" onclick="Q1IsAnswered('Q1_answers',true);"/>
-              <h4>C: Rigging</h4><input name="Ans1" type="radio" onclick="Q1IsAnswered('Q1_answers');">
-            </form>
-        
-        <!--Question2-->
-        <br><h3>Q2: Where do you moor boats?</h3>
-        <br><form id="Q2_answers">
-              <h4>A: On a jetty</h4><input name="Ans2" type="radio" onclick="Q1IsAnswered('Q2_answers',true);"/>
-              <h4>B: At a restaraunt</h4><input name="Ans2" type="radio" onclick="Q1IsAnswered('Q2_answers');"/>
-              <h4>C: At a furniture centre</h4><input name="Ans2" type="radio" onclick="Q1IsAnswered('Q2_answers');"/>
-            </form>
+        <div id="quiz">            
+        </div>  
 
-        <!--Confusion-->
+      <!--Question1-->
+      <br><h3>Q1: Which of these is not a type of sailing boat?</h3>
+      <br><form id="Q1_answers">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input name="Ans1" type="radio" class="form-check-input" onclick="Q1IsAnswered('Q1_answers')">
+              <h4>A: Optimist boat</h4>
+            </input>
+          </label>
+        </div>              
+        <div class="form-check">
+          <label class="form-check-label">
+            <input name="Ans1" type="radio" class="form-check-input" onclick="Q1IsAnswered('Q1_answers')">
+              <h4>B: Quest boat</h4>
+            </input>
+          </label>
+        </div>              
+        <div class="form-check">
+          <label class="form-check-label">
+            <input name="Ans1" type="radio" class="form-check-input"
+                onclick="Q1IsAnswered('Q1_answers',true)">
+              <h4>C: Searcher boat</h4>
+            </input>
+          </label>
+        </div>              
+      </form>
+      
+      <!--Question2-->
+      <br><h3>Q2: How are the engines on a powerboat rated?</h3>
+      <br><form id="Q2_answers">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input name="Ans2" type="radio" class="form-check-input"
+                onclick="Q1IsAnswered('Q2_answers', true)">
+              <h4>A: Using Sealpower</h4>
+            </input>
+          </label>
+        </div>              
+        <div class="form-check">
+          <label class="form-check-label">
+            <input name="Ans2" type="radio" class="form-check-input"
+                onclick="Q1IsAnswered('Q2_answers',true)">
+              <h4>B: Using Horsepower</h4>
+            </input>
+          </label>
+        </div>              
+        <div class="form-check">
+          <label class="form-check-label">
+            <input name="Ans2" type="radio" class="form-check-input"
+                onclick="Q1IsAnswered('Q2_answers')">
+              <h4>C: Using Dragon boat paddlers</h4>
+            </input>
+          </label>
+        </div>              
+      </form>
+
+      <!--Confusion-->
         <div class="container">
           <div class="text-right">
-            <a href="javascript:explain()">I answered rigging for Q1, why did I get it wrong?</a>
+            <!-- <a href="javascript:explain()">I answered rigging for Q1, why did I get it wrong?</a> -->
             <div id="Confused"></div>
           </div>
         </div>

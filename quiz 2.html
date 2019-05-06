@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="odhran Crotty, and Bootstrap contributors">
     <title>Sailing quiz 1</title>
+    <link rel="shortcut icon" type="image/png" href="The Crotty Sailors Logo.png">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -34,8 +35,14 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
-                  <h4 class="text-white">About me</h4>
-                  <p class="text-muted">This is a sailing quiz. Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                  <h4 class="text-white">About this project</h4>
+              <p class="text-muted">The main purpose is to give people the opportunity to learn some things about sailing.
+                We (Odhran and Tiernan) love to sail and we would like others to try it out too. 
+              </p>
+              <p class="text-muted">Most of this project was written in HTML5 using <a href="https://getbootstrap.com">Bootstrap CSS</a> to give some layout to the pages.
+                Each lesson is a seperate HTML page, so that people can restart where they stopped.
+                The answers to the quizzes are checked with Javascript.
+              </p>
                 </div>
                 <div class="col-sm-4 offset-md-1 py-4">
                   <h4 class="text-white">Contact</h4>
@@ -50,7 +57,7 @@
           </div>
           <div class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container d-flex justify-content-between">
-              <a href="quiz 1.html" class="navbar-brand d-flex align-items-center">
+              <a href="index.html" class="navbar-brand d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" focusable="false" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                 <strong>Sailing Quiz</strong>
               </a>
@@ -69,20 +76,6 @@
         <script>
             var RightAnswers = 0;
             var QuestionsAnswered = 0;
-
-
-            function Q1IsAnswered(track, right) {
-              var s = document.querySelector("#" + track)
-              QuestionsAnswered = QuestionsAnswered + 1;
-              if ((right !== undefined) && right) {
-                RightAnswers = RightAnswers + 1;
-                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-success">Right!</span></h4>'
-              }
-
-              else {
-                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-warning">Wrong</span></h4>';
-              }
-            }
 
             function seeScore() {
               var s = document.querySelector("#Score");

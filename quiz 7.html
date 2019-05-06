@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="odhran Crotty, and Bootstrap contributors">
     <title>Sailing quiz 7</title>
+    <link rel="shortcut icon" type="image/png" href="The Crotty Sailors Logo.png">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -40,7 +41,7 @@
                 </p>
                 <p class="text-muted">Most of this project was written in HTML5 using <a href="https://getbootstrap.com">Bootstrap CSS</a> to give some layout to the pages.
                   Each lesson is a seperate HTML page, so that people can restart where they stopped.
-                  The answers to the quizs are checked with Javascript.
+                  The answers to the quizzes are checked with Javascript.
                 </p>
               </div>
               <div class="col-sm-4 offset-md-1 py-4">
@@ -55,7 +56,7 @@
       </div>
       <div class="navbar navbar-dark bg-dark shadow-sm">
           <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand d-flex align-items-center">
+          <a href="index.html" class="navbar-brand d-flex align-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" fill="currentColor" focusable="false" aria-hidden="true">
               <polygon points="74.787,375.394 257.554,375.394 257.554,0"/>
               <polygon points="289.053,77.246 289.053,375.394 434.211,375.394"/>
@@ -80,19 +81,6 @@
         <script>
             var RightAnswers = 0;
             var QuestionsAnswered = 0;
-
-            function Q1IsAnswered(track, right) {
-              var s = document.querySelector("#" + track)
-              QuestionsAnswered = QuestionsAnswered + 1;
-              if ((right !== undefined) && right) {
-                RightAnswers = RightAnswers + 1;
-                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-success">Right!</span></h4>';
-              }
-
-              else {
-                s.innerHTML = '<h4><span class="badge badge-pill badge-secondary">Question Answered</span> <span class="badge badge-warning">Wrong</span></h4>';
-              }
-            }
 
             function seeScore() {
               var s = document.querySelector("#Score");
